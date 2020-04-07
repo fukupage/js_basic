@@ -283,6 +283,7 @@
 	*/
 
 	// setInterval
+/*
 	// let i = 0;
 	// function showTime(){
 	// 	console.log(new Date());
@@ -292,15 +293,76 @@
 	// 	};
 	// }
 	// const intervalId = setInterval(showTime, 1000);
+*/
 
-	let i = 0;
-	function showTime(){
-		console.log(new Date());
-		const timeoutId = setTimeout(showTime, 1000);
-		i++;
-		if(i > 2){
-			clearTimeout(timeoutId);
+	// setTimeout
+/*
+	// let i = 0;
+	// function showTime(){
+	// 	console.log(new Date());
+	// 	const timeoutId = setTimeout(showTime, 1000);
+	// 	i++;
+	// 	if(i > 2){
+	// 		clearTimeout(timeoutId);
+	// 	}
+	// }
+	// showTime();
+*/
+
+//例外処理
+/*
+const name = 'rei';
+// const name = 5;
+try {
+	console.log(name.toUpperCase());
+} catch(e) {
+	console.log('えらーだよー');
+	console.log(e);
+}
+
+console.log('Finish!');
+*/
+
+// クラス・メソッド・コンストラクタ
+{
+	class Post{ //親クラス 
+		constructor(text,likeCount){
+			this.text = text;
+			this.likeCount = likeCount;
+		}
+
+		show1(){
+			console.log(`${this.text} - ${this.likeCount}LIKE`);
 		}
 	}
-	showTime();
+		class SponsoredPost extends Post{
+		constructor(text,likeCount,sponsor){
+		super(text,likeCount);
+		this.sponsor = sponsor;
+		}
+		show2(){
+			console.log(`${this.text} - ${this.likeCount}LIKE`);
+			console.log(`...posted by ${this.sponsor}`);
+		}
+	}
+	const posts = [ //子クラス
+	new Post('勉強しんどい', 10),
+	new Post('だらだらしたい', 25),
+	new Post('ラーメン食べたい', 25),
+];
+
+const sponsoredposts = [ //子クラス
+	new SponsoredPost('遊びたい', 10,'hogehoge'),
+	new SponsoredPost('寝たい', 5,'fugafuga'),
+	new SponsoredPost('でも、何かしないと', 50,'hogefuga'),
+];
+
+
+posts[0].show1();
+posts[1].show1();
+posts[2].show1();
+sponsoredposts[0].show2();
+sponsoredposts[1].show2();
+sponsoredposts[2].show2();
+}
 }
